@@ -1,0 +1,20 @@
+
+<div class="filter">
+  <mat-form-field class="filter__field">
+    <input
+      matInput
+      placeholder="Поиск по имени репозитория"
+      [formControl]="searchFormControl"/>
+  </mat-form-field>
+  <mat-form-field class="filter__field">
+    <input
+      matInput
+      placeholder="Поиск по автору"
+      [formControl]="userFormControl"/>
+  </mat-form-field>
+</div>
+<mat-paginator [length]="total"
+               [pageSize]="perPage"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="onPageChange($event)">
+</mat-paginator>

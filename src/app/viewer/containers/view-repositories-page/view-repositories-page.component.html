@@ -1,0 +1,21 @@
+<app-filter 
+[total]="total$ | async"
+[perPage]="perPage$ | async"
+[page]="page$ | async"
+(changeFilter)="onChange($event)">
+</app-filter>
+
+<div class="content">
+    <mat-spinner *ngIf="repositoriesLoading$ | async; else list"></mat-spinner>
+    <ng-template #list>
+        <app-list  *ngIf="repositoriesLoaded$ | async; else noData"
+            [repositories]="repositories$ | async" 
+            [perPage]="perPage$ | async"
+            [page]="page$ | async">
+        </app-list>
+    </ng-template>
+    <ng-template #noData>
+        Нет данных для отображения, измените запрос
+    </ng-template>
+    
+</div>

@@ -1,18 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ViewerModule } from "./viewer/viewer.module";
+import { MaterialModule } from "./shared/material.module";
+import { StoreModule } from "@ngrx/store";
+import { reducers } from "./viewer/reducers";
+import { EffectsModule } from "@ngrx/effects";
+import { HttpClientModule } from "@angular/common/http";
+import { Paginator } from "./shared/paginator";
+import { MatPaginatorIntl } from "@angular/material/paginator";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([]),
+    HttpClientModule,
+    ViewerModule,
+    // MaterialModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
