@@ -13,18 +13,7 @@ import { NgOnDestroy } from "@app/services/destroy.service";
   providers: [NgOnDestroy],
 })
 export class RepositoriesPageComponent implements OnInit {
-  constructor(
-    private store: Store<fromRepositories.State>,
-    private route: ActivatedRoute,
-    @Self() private onDestroy$: NgOnDestroy
-  ) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.route.params
-      .pipe
-      // mergeMap((params) => [RepositoryActions.getRepositories({})]),
-      // takeUntil(this.onDestroy$)
-      ()
-      .subscribe(this.store);
-  }
+  ngOnInit(): void {}
 }

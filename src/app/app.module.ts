@@ -12,6 +12,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { HttpClientModule } from "@angular/common/http";
 import { Paginator } from "./shared/paginator";
 import { MatPaginatorIntl } from "@angular/material/paginator";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,8 @@ import { MatPaginatorIntl } from "@angular/material/paginator";
     EffectsModule.forRoot([]),
     HttpClientModule,
     ViewerModule,
-    // MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
 })

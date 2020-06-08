@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, SimpleChanges } from "@angular/core";
 import { IRepository } from "@app/viewer/models";
 import { Sort } from "@angular/material/sort";
+import { MatDialog } from "@angular/material/dialog";
+import { Observable } from "rxjs";
+import { RepositoryDialogComponent } from "../repository-dialog/repository-dialog.component";
 
 @Component({
   selector: "app-list",
@@ -19,7 +22,7 @@ export class ListComponent implements OnInit {
     "created",
   ];
   @Input() repositoriesLoading: boolean;
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   sortRepositories: IRepository[];
   ngOnInit(): void {}
@@ -31,7 +34,15 @@ export class ListComponent implements OnInit {
   }
 
   onClick(row: IRepository) {
-    console.log(row);
+    this.openDialog(row);
+  }
+
+  private openDialog(repository: IRepository): Observable<null> {
+    const dialogRef = this.dialog.open(RepositoryDialogComponent, {
+      width: "500px",
+      data: { repository },
+    });
+    return dialogRef.afterClosed();
   }
 
   sortData(sort: Sort) {

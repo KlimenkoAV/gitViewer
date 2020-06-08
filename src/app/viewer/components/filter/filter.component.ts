@@ -1,10 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { FormControl } from "@angular/forms";
-import { debounceTime, switchMap, tap, startWith, skip } from "rxjs/operators";
+import { debounceTime, tap, startWith, skip } from "rxjs/operators";
 import { of, combineLatest } from "rxjs";
 import { IRepositoryParameters } from "../../models";
 import { PageEvent } from "@angular/material/paginator";
-
 @Component({
   selector: "app-filter",
   templateUrl: "./filter.component.html",
@@ -31,6 +30,7 @@ export class FilterComponent implements OnInit {
     ])
       .pipe(
         debounceTime(300),
+        skip(1),
         tap(([search, user, page, per_page]) =>
           this.changeFilter.emit({ search, user, page, per_page })
         )

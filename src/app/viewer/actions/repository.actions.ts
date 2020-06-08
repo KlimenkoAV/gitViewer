@@ -1,9 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import {
-  IRepository,
-  IRepositoryParameters,
-  IRepositoryRequest,
-} from "../models";
+import { IRepositoryParameters, IRepositoryRequest } from "../models";
 
 export const getRepositories = createAction(
   "[Repositories Page] Get Repositories",

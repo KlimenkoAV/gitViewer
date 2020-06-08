@@ -1,11 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import {
-  IRepository,
-  IRepositoryParameters,
-  IRepositoryRequest,
-} from "../models";
+import { IRepositoryParameters, IRepositoryRequest } from "../models";
 
 @Injectable({
   providedIn: "root",
@@ -22,15 +18,6 @@ export class RepositoriesService {
     params: IRepositoryParameters
   ): Observable<IRepositoryRequest> {
     let url = this.url + "?";
-
-    // if (params) {
-    //   url = url.concat("?");
-    //   Object.keys(params).forEach((key) => {
-    //     if (params[key]) {
-    //       url = url.concat(key + `=${params[key]}&`);
-    //     }
-    //   });
-    // }
 
     if (params.page) {
       url = url.concat(`page=${params.page}&`);

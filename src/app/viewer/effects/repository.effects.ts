@@ -1,7 +1,7 @@
 import { ActionsSubject, Store } from "@ngrx/store";
 import { Injectable } from "@angular/core";
 import * as fromRepositories from "@viewer/reducers";
-import { createEffect, Actions, ofType } from "@ngrx/effects";
+import { createEffect, ofType } from "@ngrx/effects";
 import { RepositoryActions } from "../actions";
 import { switchMap, map, catchError } from "rxjs/operators";
 import { RepositoriesService } from "../services/repository.service";
@@ -11,7 +11,6 @@ import { of } from "rxjs";
 export class RepositoriesEffects {
   constructor(
     private actions$: ActionsSubject,
-    private store: Store<fromRepositories.State>,
     private repositoriesService: RepositoriesService
   ) {}
 

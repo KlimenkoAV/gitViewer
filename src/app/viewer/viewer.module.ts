@@ -10,8 +10,7 @@ import { ViewRepositoriesPageComponent } from "@viewer/containers/view-repositor
 import { FilterComponent } from "./components/filter/filter.component";
 import { ListComponent } from "./components/list/list.component";
 import { MaterialModule } from "@shared/material.module";
-import { Paginator } from "@app/shared/paginator";
-import { MatPaginatorIntl } from "@angular/material/paginator";
+import { RepositoryDialogComponent } from "./components/repository-dialog/repository-dialog.component";
 
 @NgModule({
   imports: [
@@ -26,12 +25,8 @@ import { MatPaginatorIntl } from "@angular/material/paginator";
     ViewRepositoriesPageComponent,
     FilterComponent,
     ListComponent,
+    RepositoryDialogComponent,
   ],
-  // providers: [
-  //   {
-  //     provide: MatPaginatorIntl,
-  //     useClass: Paginator,
-  //   },
-  // ],
+  entryComponents: [RepositoryDialogComponent],
 })
 export class ViewerModule {}

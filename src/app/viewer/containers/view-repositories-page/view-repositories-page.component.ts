@@ -4,7 +4,6 @@ import { Store, select } from "@ngrx/store";
 import * as fromRepositories from "@viewer/reducers";
 import { RepositoryActions } from "@app/viewer/actions";
 import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
 
 @Component({
   selector: "app-view-repositories-page",
